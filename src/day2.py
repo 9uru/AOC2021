@@ -50,7 +50,7 @@ def navigate_sub_aim(directions: List[str]) -> int:
 
 def main():
     '''
-    read file and count
+    read file and calculate
     '''
     with open('inputs/day2_input.txt', 'r') as directions_file: # pylint: disable=unspecified-encoding
         directions = directions_file.readlines()
