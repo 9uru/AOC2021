@@ -7,7 +7,6 @@ Author: 9uru
 from time import perf_counter
 from random import randint
 from src import day7
-from src.day4 import parse_input
 
 def test_calc_fuel_bf():
     '''
