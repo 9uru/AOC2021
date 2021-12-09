@@ -7,8 +7,10 @@ Author: 9uru
 from collections import Counter
 from typing import List
 
+from src.day5 import INPUT_FILENAME
 
-class LanternPool:
+
+class LanternPool:  # pylint: disable=too-few-public-methods
     '''
     Class with datastructure to handle lantern fish
     '''
@@ -20,6 +22,9 @@ class LanternPool:
         self.fish_pool = Counter(fish_list)
 
     def update_counts(self):
+        '''
+        update timer of each fish
+        '''
         new_count = {}
         for count in self.fish_pool:
             if count > 0:
@@ -55,5 +60,5 @@ def main(fish_filename: str, days: int):
 
 
 if __name__ == "__main__":
-    fish_filename = "inputs/day6_input.txt"
-    main(fish_filename, 256)
+    INPUT_FILENAME = "inputs/day6_input.txt"
+    main(INPUT_FILENAME, 256)
