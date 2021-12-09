@@ -7,8 +7,6 @@ Author: 9uru
 from collections import Counter
 from typing import List
 
-from src.day5 import INPUT_FILENAME
-
 
 class LanternPool:  # pylint: disable=too-few-public-methods
     '''
