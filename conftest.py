@@ -16,3 +16,11 @@ def day2_test():
 def day3_test():
     return ['00100', '11110', '10110', '10111', '10101', '01111',
         '00111', '11100', '10000', '11001', '00010', '01010']
+
+@pytest.fixture()
+def day12_test():
+    return ["start-A", "start-b", "A-c", "A-b", "b-d", "A-end", "b-end"]
+
+@pytest.fixture()
+def day12_test_small():
+    return ["start-A", "A-b", "A-end", "b-end"]
