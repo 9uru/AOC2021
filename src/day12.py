@@ -50,19 +50,14 @@ class CaveGraph:
             start, end = connect.split("-")
             self.add_to_graph(start, end)
 
-        # self.calculate_paths()
+        self.calculate_paths()
 
     def calculate_paths(self, start='start', end='end', visited_small=set()):
         '''
         Find all paths from start to end
         while going through small caves only once
         '''
-        print("*" * 50)
-        print(start, end)
         key = start + "-" + end
-        if key in self.paths:
-            return self.paths[key]
-
         if start == end:
             return [end]
 
@@ -70,8 +65,6 @@ class CaveGraph:
 
         if start in self.graph:
             for next_node in self.graph[start]:
-                if start == 'd':
-                    print(next_node)
                 cur_visited = visited_small.copy()
 
                 if next_node in self.small_caves:
@@ -80,9 +73,6 @@ class CaveGraph:
                     else:
                         cur_visited.add(next_node)
                 for next_path in self.calculate_paths(next_node, end, cur_visited):
-                    if start == 'd':
-                        print(next_path)
                     paths.append(start + "-" + next_path)
         self.paths[key] = paths
-        print(paths)
         return paths

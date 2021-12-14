@@ -7,7 +7,7 @@ import json
 import pytest
 from src import day12
 
-@pytest.fixture(name="cave_graph")
+@pytest.fixture(name="cave_graphs")
 def test_cave_graph(day12_test, day12_test_small):
     '''
     Test creating class
@@ -30,12 +30,13 @@ def test_cave_graph(day12_test, day12_test_small):
         'b': {'A', 'd', 'end'},
         'c': {'A'},
         'd': {'b'}}
-    return cave_graph_small
+    return cave_graph_small, cave_graph
 
-def test_calculate_paths(cave_graph):
+def test_calculate_paths(cave_graphs):
     '''
     Test calculation of paths
     '''
-    cave_graph.calculate_paths('start', 'end')
-    print(json.dumps(cave_graph.paths, indent=2))
-    assert len(cave_graph.paths['start-end']) == 3
+    cave_graph_small, cave_graph = cave_graphs
+    assert len(cave_graph_small.paths['start-end']) == 3
+    assert len(cave_graph.paths['b-end']) == 3
+    assert len(cave_graph.paths['start-end']) == 10
