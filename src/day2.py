@@ -52,7 +52,7 @@ def main():
     '''
     read file and calculate
     '''
-    with open('inputs/day2_input.txt', 'r') as directions_file: # pylint: disable=unspecified-encoding
+    with open('inputs/day2_input.txt', 'r') as directions_file:
         directions = directions_file.readlines()
     directions = [x.strip("\n") for x in directions]
     print(navigate_sub(directions))

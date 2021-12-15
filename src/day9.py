@@ -34,7 +34,7 @@ def parse_input(heights_filename: str) -> List[List[int]]:
     '''
     read file and parse and heights 2d array
     '''
-    with open(heights_filename, 'r') as heights_file:  # pylint: disable=unspecified-encoding
+    with open(heights_filename, 'r') as heights_file:
         lines = heights_file.readlines()
     arr = []
     for line in lines:

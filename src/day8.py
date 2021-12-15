@@ -88,7 +88,7 @@ def parse_input(words_filename: str) -> Tuple[List[str]]:
     Parses input into a list of input string
     and list of output strings
     '''
-    with open(words_filename, 'r') as words_file:  # pylint: disable=unspecified-encoding
+    with open(words_filename, 'r') as words_file:
         lines = words_file.readlines()
     input_strs = []
     output_strs = []

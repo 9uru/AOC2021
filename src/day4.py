@@ -68,7 +68,7 @@ def parse_input(input_file: str) -> Tuple[List[str], List[Board]]:
     and individual boards : List[Board]
     '''
 
-    with open(input_file, 'r') as bingo_file: # pylint: disable=unspecified-encoding
+    with open(input_file, 'r') as bingo_file:
         lines = bingo_file.readlines()
 
     sequence = [x.strip("\n") for x in lines[0].split(",")]

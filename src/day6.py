@@ -37,7 +37,7 @@ def parse_input(fish_filename: str) -> List[int]:
     '''
     Given a txt file return a list of fish timers
     '''
-    with open(fish_filename, 'r') as fish_file:  # pylint: disable=unspecified-encoding
+    with open(fish_filename, 'r') as fish_file:
         lines = fish_file.readlines()
     timer_list = []
     for line in lines:

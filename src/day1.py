@@ -38,7 +38,7 @@ def main():
     '''
     read file and count
     '''
-    with open('inputs/day1_input.txt', 'r') as depths_file:  # pylint: disable=unspecified-encoding
+    with open('inputs/day1_input.txt', 'r') as depths_file:
         depths = depths_file.readlines()
     depths = [int(x.strip("\n")) for x in depths]
     print(count_increment(depths))

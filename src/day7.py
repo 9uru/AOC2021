@@ -59,7 +59,7 @@ def parse_input(positions_filename: str) -> List[int]:
     '''
     Read positions
     '''
-    with open(positions_filename, 'r') as positions_file:  # pylint: disable=unspecified-encoding
+    with open(positions_filename, 'r') as positions_file:
         lines = positions_file.readlines()
     positions = []
     for line in lines:

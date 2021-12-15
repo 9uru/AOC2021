@@ -3,7 +3,7 @@ Solution for day 12
 Author: 9uru
 12/13/2021
 '''
-from collections import defaultdict, Counter
+from collections import defaultdict
 from typing import List
 from src import day10
 
@@ -45,12 +45,12 @@ class CaveGraph:
             start, end = connect.split("-")
             self.add_to_graph(start, end)
 
-        self.calculate_paths()
-        self.calculate_paths2('start', 'end', set(), set(), 0)
+        self.calculate_paths('start', 'end', set())
+        self.calculate_paths2('start', 'end', set(), set())
 
 
 
-    def calculate_paths(self, start='start', end='end', visited_small=set()):
+    def calculate_paths(self, start='start', end='end', visited_small=None):
         '''
         Find all paths from start to end
         while going through small caves only once
@@ -69,14 +69,14 @@ class CaveGraph:
                 if next_node in self.small_caves:
                     if next_node in cur_visited:
                         continue
-                    else:
-                        cur_visited.add(next_node)
+                    cur_visited.add(next_node)
                 for next_path in self.calculate_paths(next_node, end, cur_visited):
                     paths.append(start + "-" + next_path)
         self.paths[key] = paths
         return paths
 
-    def calculate_paths2(self, start='start', end='end', visited_once=None, visited_twice=None, count=0):
+    def calculate_paths2(
+            self, start='start', end='end', visited_once=None, visited_twice=None):
         '''
         Find all paths from start to end
         while going through small caves only once
@@ -86,10 +86,7 @@ class CaveGraph:
             visited_once.add(start)
         if start == end:
             return [end]
-        # print(self.keywords, self.small_caves)
-        # print(count, start, end, visited_once, visited_twice)
-        # if count > 50:
-        #     return
+
         paths = []
 
         if start in self.graph:
@@ -100,17 +97,18 @@ class CaveGraph:
                 if next_node in self.keywords:
                     if next_node in cur_visited_once:
                         continue
-                    else:
-                        cur_visited_once.add(next_node)
+                    cur_visited_once.add(next_node)
                 elif next_node in self.small_caves:
                     if cur_visited_twice and next_node in cur_visited_once:
                         continue
-                    elif next_node in cur_visited_once:
+
+                    if next_node in cur_visited_once:
                         cur_visited_twice.add(next_node)
                     else:
                         cur_visited_once.add(next_node)
 
-                for next_path in self.calculate_paths2(next_node, end, cur_visited_once, cur_visited_twice, count + 1):
+                for next_path in self.calculate_paths2(
+                    next_node, end, cur_visited_once, cur_visited_twice):
                     paths.append(start + "-" + next_path)
         self.paths2[key] = paths
         return paths

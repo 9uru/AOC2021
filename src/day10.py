@@ -59,7 +59,7 @@ def parse_input(syntax_filename: str) -> List[str]:
     '''
     Parse command file and get individual syntax strs
     '''
-    with open(syntax_filename, 'r') as syntax_file:  # pylint: disable=unspecified-encoding
+    with open(syntax_filename, 'r') as syntax_file:
         lines = syntax_file.readlines()
 
     syntaxes = [line.strip("\n") for line in lines]

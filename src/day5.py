@@ -26,7 +26,7 @@ def parse_input(lines_filename: str) -> List[Tuple[int]]:
     [(p1x1 p1y1 p1p2x p1p2y),(p2x1 p2y1 p2x2 p2y2),...]
     '''
 
-    with open(lines_filename, 'r') as lines_file:  # pylint: disable=unspecified-encoding
+    with open(lines_filename, 'r') as lines_file:
         lines = lines_file.readlines()
 
     line_tuples = [format_line(line) for line in lines]

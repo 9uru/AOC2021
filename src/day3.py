@@ -103,7 +103,7 @@ def main():
     '''
     read file and calculate
     '''
-    with open('inputs/day3_input.txt', 'r') as bin_stream_file: # pylint: disable=unspecified-encoding
+    with open('inputs/day3_input.txt', 'r') as bin_stream_file:
         bin_stream = bin_stream_file.readlines()
     bin_stream = [x.strip("\n") for x in bin_stream]
     print(calculate_consumption(bin_stream))
