@@ -49,7 +49,6 @@ class CaveGraph:
         self.calculate_paths2('start', 'end', set(), set())
 
 
-
     def calculate_paths(self, start='start', end='end', visited_small=None):
         '''
         Find all paths from start to end
