@@ -20,9 +20,11 @@ def test_calculate_risk():
     ]
 
     assert day15.calculate_risk(arr) == 11
-
+    assert day15.calculate_risk_dijkstra(arr) == 11
     arr_big = utils.parse_2darray("inputs/day15_input_short.txt")
     assert day15.calculate_risk(arr_big) == 40
+    assert day15.calculate_risk_dijkstra(arr_big) == 40
+
 
     return arr_big
 
@@ -43,4 +45,5 @@ def test_replicate_arr(arr):
         [5, 5, 6, 6, 7, 7, 8, 8, 9, 9],
         [5, 5, 6, 6, 7, 7, 8, 8, 9, 9]]
 
-    print(day15.replicate_arr(arr))
+    big_arr = day15.replicate_arr(arr)
+    assert big_arr[-1][-1] == 9
